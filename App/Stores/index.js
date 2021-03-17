@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { all } from "redux-saga/effects";
-import { userReducer } from "./user/reducer";
 import { authReducer } from "./Authentication/reducer";
-import { userSagas } from "./user/sagas";
+import { gameReducer } from "./gameData/reducer";
+import { gameSagas } from "./gameData/sagas";
 import AsyncStorage from "@react-native-community/async-storage";
 import { persistStore, persistReducer } from "redux-persist";
 
@@ -12,13 +12,13 @@ const persistConfig = {
   storage: AsyncStorage,
 };
 const rootReducer = combineReducers({
-  user: userReducer,
   auth: authReducer,
+  game: gameReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 function* allSagas() {
-  yield all([...userSagas]);
+  yield all([...gameSagas]);
 }
 
 // create the saga middleware
