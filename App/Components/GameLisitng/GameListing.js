@@ -14,6 +14,7 @@ const GameListing = ({ results, upcoming, betType }) => {
 
       <FlatList
         data={results}
+        keyExtractor={(game) => game.id}
         ListEmptyComponent={() => (
           <Title style={{ color: Colors.secondary }}>
             No Upcoming game yet!

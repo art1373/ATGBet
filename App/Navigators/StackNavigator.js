@@ -23,7 +23,7 @@ export const MainStack = () => {
         component={SplashScreen}
       />
       <Stack.Screen
-        options={{ title: "ATG" }}
+        options={{ title: "Home" }}
         name={Strings.Routes.MAIN}
         component={BottomTabStack}
       />

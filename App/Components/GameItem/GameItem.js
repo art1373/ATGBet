@@ -19,7 +19,7 @@ const GameItem = ({ game, index, betType, onPress }) => {
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
       <View
-        animation="slideInUp"
+        animation="fadeInUpBig"
         duration={800}
         delay={index * 180}
         useNativeDriver

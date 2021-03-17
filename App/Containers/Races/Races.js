@@ -1,10 +1,15 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { fetchRaces } from "../../Stores/gameData/actions";
-import { useDispatch } from "react-redux";
+import { racesSelector } from "../../Stores/gameData/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { Colors } from "react-native/Libraries/NewAppScreen";
+import RaceItem from "../../Components/RaceItem/RaceItem";
 const Races = () => {
   const dispatch = useDispatch();
+  const races = useSelector(racesSelector);
+  console.log({ races });
   const { gameId } = useRoute().params;
   React.useEffect(() => {
     if (gameId) {
@@ -12,9 +17,20 @@ const Races = () => {
     }
   }, [gameId]);
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <>
+      {races && (
+        <FlatList
+          data={races && races}
+          keyExtractor={(race) => race.id}
+          renderItem={({ item, index }) => (
+            <RaceItem index={index} race={item} />
+          )}
+          ListEmptyComponent={
+            <ActivityIndicator color={Colors.primary} size={60} />
+          }
+        />
+      )}
+    </>
   );
 };
 

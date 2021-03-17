@@ -32,7 +32,8 @@ function* watchFetchProducts() {
 function* fetchRacesCall(action) {
   try {
     const resp = yield api.games.fetchGames(action.gameId);
-    const races = { ...resp?.data?.races };
+    console.log(resp?.data);
+    const races = resp?.data?.races;
     yield put(setRaces(races));
     if (action.onSuccess) {
       action.onSuccess();
