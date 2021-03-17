@@ -1,8 +1,9 @@
 export const initialState = {
-  products: { betType: null, upcoming: null, results: null },
-  games: null,
+  games: { betType: null, upcoming: null, results: null },
+  races: null,
 };
 
-export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const FETCH_GAMES = "FETCH_GAMES";
-export const SET_PRODUCTS = "SET_PRODUCTS";
+export const FETCH_RACES = "FETCH_RACES";
+export const SET_GAMES = "SET_GAMES";
+export const SET_RACES = "SET_RACES";

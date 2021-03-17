@@ -1,22 +1,29 @@
-import { FETCH_GAMES, FETCH_PRODUCTS, SET_PRODUCTS } from "./constants";
+import { FETCH_GAMES, SET_RACES, SET_GAMES, FETCH_RACES } from "./constants";
 
 export const fetchProductsByGameType = (gameType, onSucces, onFailure) => {
   return {
-    type: FETCH_PRODUCTS,
+    type: FETCH_GAMES,
     gameType,
     onSucces,
     onFailure,
   };
 };
-export const setProdcuts = (products) => {
+export const setGames = (games) => {
   return {
-    type: SET_PRODUCTS,
-    products,
+    type: SET_GAMES,
+    games,
   };
 };
-export const fetchGames = (gameId) => {
+
+export const fetchRaces = (gameId) => {
   return {
-    type: FETCH_GAMES,
+    type: FETCH_RACES,
     gameId,
+  };
+};
+export const setRaces = (races) => {
+  return {
+    type: SET_RACES,
+    races,
   };
 };
