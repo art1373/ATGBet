@@ -1,13 +1,18 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import styles from './SplashScreenStyle';
-import { Helpers } from 'App/Theme';
+import React, { useEffect } from "react";
+import { Text, View } from "react-native";
+import styles from "./SplashScreenStyle";
+import { Helpers } from "App/Theme";
+import { useNavigation } from "@react-navigation/core";
+import Strings from "../../Values/Strings";
 
-const SplashScreen = (props) => {
+const SplashScreen = () => {
+  const { navigate } = useNavigation();
+  useEffect(() => {
+    navigate(Strings.Routes.HOME);
+  }, []);
   return (
     <View style={[Helpers.fillRowCenter, styles.container]}>
       <View style={[Helpers.center, styles.logo]}>
-        {/* You will probably want to insert your logo here */}
         <Text>LOGO</Text>
       </View>
     </View>
