@@ -21,6 +21,7 @@ export const MainStack = () => {
       <Stack.Screen
         name={Strings.Routes.SPLASH_SCREEN}
         component={SplashScreen}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         options={{ title: "Home" }}
