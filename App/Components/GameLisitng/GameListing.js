@@ -6,13 +6,16 @@ import { Colors } from "App/Theme";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/core";
 import Strings from "../../Values/Strings";
-const GameListing = ({ results, upcoming, betType }) => {
+const GameListing = ({ results, upcoming, betType, testID }) => {
   const { navigate } = useNavigation();
   return (
     <>
-      <Title style={{ color: Colors.primary }}>Ongoing Games({betType})</Title>
+      <Title testID="txt" style={{ color: Colors.primary }}>
+        Ongoing Games({betType})
+      </Title>
 
       <FlatList
+        testID={testID}
         data={results}
         keyExtractor={(game) => game.id}
         ListEmptyComponent={() => (
@@ -23,6 +26,7 @@ const GameListing = ({ results, upcoming, betType }) => {
         contentContainerStyle={styles.flatListContainer}
         renderItem={({ item, index }) => (
           <GameItem
+            testID="gameItem"
             onPress={() => navigate(Strings.Routes.RACES, { gameId: item?.id })}
             game={item}
             index={index}

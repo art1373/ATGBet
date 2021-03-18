@@ -22,11 +22,13 @@ const Home = () => {
   return (
     <Container>
       <Picker
+        testid="picker"
         selected={game}
         onValueChange={(val) => setgame(val)}
         options={pickerOptions}
       />
       <GameListing
+        testID="gamelist"
         betType={games?.betType}
         upcoming={games?.upcoming}
         results={games?.results}

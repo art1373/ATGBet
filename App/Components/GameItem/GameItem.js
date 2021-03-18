@@ -15,7 +15,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { Colors, Images } from "App/Theme";
 import { dateToMonthAndYear } from "../../utils/dateStr";
 
-const GameItem = ({ game, index, betType, onPress }) => {
+const GameItem = ({ game, index, betType, onPress, testID }) => {
   return (
     <TouchableOpacity key={index} activeOpacity={0.6} onPress={onPress}>
       <View

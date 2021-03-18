@@ -19,7 +19,10 @@
     "postinstall": "npx jetify",
     "clean": "cd android && ./gradlew clean && ./gradlew cleanBuildcache && cd .. && cd ios && rm -rf build/ && xcodebuild clean && watchman watch-del-all && cd ..",
     "pod": "cd ios && pod install && cd ..",
-    "pod-update": "pod --repo-update"
+    "pod-update": "pod --repo-update",
+    "e2e:build":"detox build -c ios",
+    "e2e:test":"detox test -c ios",
+    "e2e:clean":"detox clean-framework-cache && detox build-framework-cache"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
@@ -57,8 +60,11 @@
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
+    "detox": "^18.7.1",
     "eslint": "^7.14.0",
+    "eslint-plugin-detox": "^1.0.0",
     "jest": "^26.6.3",
+    "jest-circus": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
     "react-native-rename": "2.5.0",
     "react-test-renderer": "17.0.1"

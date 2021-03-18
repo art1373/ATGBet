@@ -3,11 +3,11 @@ import Icon from "react-native-vector-icons/Entypo";
 import { Picker } from "native-base";
 import { Colors } from "App/Theme";
 
-const PickerCustom = ({ selected, onValueChange, options }) => {
+const PickerCustom = ({ selected, onValueChange, options, testid }) => {
   return (
     <Picker
       mode="dropdown"
-      iosIcon={<Icon name="chevron-down" size={25} />}
+      iosIcon={<Icon testID={testid} name="chevron-down" size={25} />}
       placeholder="Select your Game"
       placeholderStyle={{ color: "red" }}
       placeholderIconColor={Colors.primary}
@@ -16,7 +16,7 @@ const PickerCustom = ({ selected, onValueChange, options }) => {
       onValueChange={onValueChange}
     >
       {options.map((o) => (
-        <Picker.Item label={o.label} value={o.value} />
+        <Picker.Item testID="pitem" label={o.label} value={o.value} />
       ))}
     </Picker>
   );

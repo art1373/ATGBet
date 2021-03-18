@@ -9,7 +9,7 @@ import { Helpers, Colors } from "App/Theme";
 
 const Container = ({ children }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <TouchableWithoutFeedback testID="cont" onPress={() => Keyboard.dismiss()}>
       <View style={{ ...Helpers.fill }}>
         <SafeAreaView style={{ backgroundColor: Colors.transparent }} />
         {children}
