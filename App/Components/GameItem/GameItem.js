@@ -17,7 +17,7 @@ import { dateToMonthAndYear } from "../../utils/dateStr";
 
 const GameItem = ({ game, index, betType, onPress }) => {
   return (
-    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
+    <TouchableOpacity key={index} activeOpacity={0.6} onPress={onPress}>
       <View
         animation="fadeInUpBig"
         duration={800}

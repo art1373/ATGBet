@@ -21,10 +21,12 @@ import { Colors, Images } from "App/Theme";
 import { dateToMonthAndYear } from "../../utils/dateStr";
 
 const RaceItem = ({ race, index }) => {
+  console.log({ race });
   const [collapsed, setCollapsed] = React.useState(true);
 
   return (
     <View
+      key={index}
       animation="fadeInRight"
       duration={800}
       delay={index * 180}
@@ -35,7 +37,7 @@ const RaceItem = ({ race, index }) => {
           <Left>
             <Thumbnail source={Images.logo} />
             <Body>
-              <Title>{race?.name}</Title>
+              <NBaseText>{race?.name}</NBaseText>
               <NBaseText note>{dateToMonthAndYear(race?.startTime)}</NBaseText>
             </Body>
           </Left>
@@ -58,7 +60,7 @@ const RaceItem = ({ race, index }) => {
                 size={25}
                 color={Colors.primary}
               />
-              <Title>{race?.number}</Title>
+              <Title>Race No.{race?.number}</Title>
             </Button>
           </Left>
           <Body>
@@ -86,16 +88,25 @@ const RaceItem = ({ race, index }) => {
           </Right>
         </CardItem>
         <Collapsible collapsed={collapsed}>
-          <View>
-            {race?.starts.map((s) => (
-              <>
-                <NBaseText>{s.number}</NBaseText>
-                <NBaseText>{s.horse.name}</NBaseText>
-                <NBaseText>{`${s.driver.firstName} - ${s.driver.lastName}`}</NBaseText>
-                <NBaseText>{`${s.horse.firstName} - ${s.horse.lastName}`}</NBaseText>
-              </>
-            ))}
-          </View>
+          {race?.starts.map((s) => (
+            <View style={styles.collapsedCol}>
+              <View style={styles.row}>
+                <Title>Start No.{s.number}</Title>
+                <View style={styles.rowInner}>
+                  <Title>Horse name:</Title>
+                  <NBaseText>{s.horse.name}</NBaseText>
+                </View>
+                <View style={styles.rowInner}>
+                  <Title>Rider:</Title>
+                  <NBaseText>{`${s.driver.firstName}  ${s.driver.lastName}`}</NBaseText>
+                </View>
+                <View style={styles.rowInner}>
+                  <Title>Trainer:</Title>
+                  <NBaseText>{`${s.horse.trainer.firstName}  ${s.horse.trainer.lastName}`}</NBaseText>
+                </View>
+              </View>
+            </View>
+          ))}
         </Collapsible>
       </Card>
     </View>

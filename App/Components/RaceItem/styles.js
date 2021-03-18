@@ -1,24 +1,24 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "App/Theme";
-export default StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  businessIcon: {
-    width: 16,
-    marginRight: 16,
-  },
+import { Colors, Helpers } from "App/Theme";
 
-  detailButtonContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+const styles = StyleSheet.create({
+  collapsedRow: {
+    ...Helpers.collapsedCol,
+    backgroundColor: Colors.gray,
+    padding: 10,
   },
-  detailButtonText: {
-    marginRight: 4,
-    lineHeight: 23.3,
-    letterSpacing: 0,
-    textAlign: "left",
-    color: Colors.primary,
+  row: {
+    paddingVertical: 10,
+    marginVertical: 10,
+    borderWidth: 2,
+    borderTopColor: Colors.primary,
+    borderBottomColor: Colors.secondary,
+  },
+  rowInner: {
+    ...Helpers.row,
+    justifyContent: "space-between",
+    marginHorizontal: 5,
   },
 });
+
+export default styles;

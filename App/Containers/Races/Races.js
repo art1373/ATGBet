@@ -9,7 +9,7 @@ import RaceItem from "../../Components/RaceItem/RaceItem";
 const Races = () => {
   const dispatch = useDispatch();
   const races = useSelector(racesSelector);
-  console.log({ races });
+
   const { gameId } = useRoute().params;
   React.useEffect(() => {
     if (gameId) {
@@ -20,6 +20,7 @@ const Races = () => {
     <>
       {races && (
         <FlatList
+          contentContainerStyle={{ paddingVertical: 20 }}
           data={races && races}
           keyExtractor={(race) => race.id}
           renderItem={({ item, index }) => (
