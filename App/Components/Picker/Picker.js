@@ -2,6 +2,7 @@ import React from "react";
 import Icon from "react-native-vector-icons/Entypo";
 import { Picker } from "native-base";
 import { Colors } from "App/Theme";
+import { PickerProps } from "./types";
 
 const PickerCustom = ({ selected, onValueChange, options }) => {
   return (
@@ -21,5 +22,6 @@ const PickerCustom = ({ selected, onValueChange, options }) => {
     </Picker>
   );
 };
+PickerCustom.propTypes = PickerProps;
 
 export default PickerCustom;

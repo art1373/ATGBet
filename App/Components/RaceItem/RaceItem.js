@@ -19,9 +19,9 @@ import Icon2 from "react-native-vector-icons/AntDesign";
 import Icon3 from "react-native-vector-icons/Ionicons";
 import { Colors, Images } from "App/Theme";
 import { dateToMonthAndYear } from "../../utils/dateStr";
+import { RaceProps } from "./types";
 
 const RaceItem = ({ race, index }) => {
-  console.log({ race });
   const [collapsed, setCollapsed] = React.useState(true);
 
   return (
@@ -112,5 +112,6 @@ const RaceItem = ({ race, index }) => {
     </View>
   );
 };
+RaceItem.propTypes = RaceProps;
 
 export default RaceItem;

@@ -14,6 +14,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { Colors, Images } from "App/Theme";
 import { dateToMonthAndYear } from "../../utils/dateStr";
+import { GameItemProps } from "./types";
 
 const GameItem = ({ game, index, betType, onPress }) => {
   return (
@@ -72,5 +73,7 @@ const GameItem = ({ game, index, betType, onPress }) => {
     </TouchableOpacity>
   );
 };
+
+GameItem.propTypes = GameItemProps;
 
 export default GameItem;

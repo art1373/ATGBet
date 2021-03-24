@@ -7,7 +7,7 @@ import RootScreen from "./Containers/Root/RootScreen";
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate persistor={persistor}>
         <RootScreen />
       </PersistGate>
     </Provider>

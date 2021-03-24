@@ -6,6 +6,7 @@ import { Colors } from "App/Theme";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/core";
 import Strings from "../../Values/Strings";
+import { GameListingProps } from "./types";
 const GameListing = ({ results, upcoming, betType }) => {
   const { navigate } = useNavigation();
   return (
@@ -40,5 +41,5 @@ const GameListing = ({ results, upcoming, betType }) => {
     </>
   );
 };
-
+GameListing.propTypes = GameListingProps;
 export default GameListing;
