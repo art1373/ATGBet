@@ -6,6 +6,7 @@ import {
   Keyboard,
 } from "react-native";
 import { Helpers, Colors } from "App/Theme";
+import { ContianerProps } from "./types";
 
 const Container = ({ children }) => {
   return (
@@ -17,5 +18,7 @@ const Container = ({ children }) => {
     </TouchableWithoutFeedback>
   );
 };
+
+Container.propTypes = ContianerProps;
 
 export default Container;
