@@ -14,7 +14,7 @@ const Home = () => {
   const games = useSelector(gamesSelector);
   const races = useSelector(racesSelector);
   const [game, setgame] = React.useState("");
-  console.log({ games, races });
+
   React.useEffect(() => {
     dispatch(fetchProductsByGameType(game));
   }, [game]);
