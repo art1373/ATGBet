@@ -4,7 +4,7 @@ import Strings from "../Values/Strings";
 import Home from "../Containers/Home/Home";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Icon2 from "react-native-vector-icons/Entypo";
-import { Colors } from "App/Theme";
+import { Colors } from "../Theme";
 import About from "../Containers/About/About";
 
 const Tab = createBottomTabNavigator();
